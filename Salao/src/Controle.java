@@ -8,25 +8,30 @@ public class Controle {
         do{
         opcao = JOptionPane.showOptionDialog(null, "Selecione:", "Operação",
                 0, 3, null, opcoes, opcoes[0]);
-        switch(opcao){
-            case 0:
-                JOptionPane.showMessageDialog(null,"Você escolheu: " + opcoes[0]);
-
-                break;
-            case 1:
-                JOptionPane.showMessageDialog(null,"Você escolheu: " + opcoes[1]);
-
-                break;
-            case 2:
-                JOptionPane.showMessageDialog(null,"Você escolheu: " + opcoes[2]);
-
-                break;
-            case 3:
-                JOptionPane.showMessageDialog(null,"Você escolheu: " + opcoes[3]);
-                break;
-            default:
-                break;
-        }}while(opcao!=3);
+            switch(opcao){
+                case 0:
+                    JOptionPane.showMessageDialog(null,"Você escolheu: "
+                            + opcoes[0]);
+                    new Entrar();
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null,"Você escolheu: "
+                            + opcoes[1]);
+                    new CriarConta();
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null,"Você escolheu: "
+                            + opcoes[2]);
+                    new CriarServico();
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null,"Você escolheu: "
+                            + opcoes[3]);
+                    break;
+                default:
+                    break;
+            }
+        }while(opcao!=3);
     }
 
 }
