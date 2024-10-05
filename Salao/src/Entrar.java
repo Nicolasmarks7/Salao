@@ -13,4 +13,8 @@ public class Entrar {
                 "Endereço",3);
     }
 
+    public void AgendarConsulta(){
+
+    }
+
 }
