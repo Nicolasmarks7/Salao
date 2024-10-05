@@ -1,5 +1,8 @@
 public class Conta {
 
+    public Conta(){
+
+    }
     public String getNome() {
         return nome;
     }
