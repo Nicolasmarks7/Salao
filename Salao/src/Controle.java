@@ -12,8 +12,7 @@ public class Controle {
                 case 0:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "
                             + opcoes[0]);
-                    Entrar entrar = new Entrar();
-                    entrar.entrar();
+                    Entrar.entrar();
                     break;
                 case 1:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "

@@ -16,8 +16,7 @@ public class CriarConta {
         conta.setEndereco(JOptionPane.showInputDialog(null, "Digite o endereço: ",
                 "Endereço",3));
         contas.add(conta);
-        Entrar entrar = new Entrar();
-        entrar.preencher(contas);
+        Entrar.preencher(conta);
     }
 
 }
