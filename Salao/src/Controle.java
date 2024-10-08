@@ -12,12 +12,14 @@ public class Controle {
                 case 0:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "
                             + opcoes[0]);
-                    new Entrar();
+                    Entrar entrar = new Entrar();
+                    entrar.entrar();
                     break;
                 case 1:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "
                             + opcoes[1]);
-                    new CriarConta();
+                    CriarConta criarconta = new CriarConta();
+                    criarconta.criarContas();
                     break;
                 case 2:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "
@@ -29,6 +31,7 @@ public class Controle {
                             + opcoes[3]);
                     break;
                 default:
+                    JOptionPane.showMessageDialog(null,"Opção inválida");
                     break;
             }
         }while(opcao!=3);
