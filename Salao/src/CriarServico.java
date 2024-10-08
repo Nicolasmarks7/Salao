@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class CriarServico {
 
-    ArrayList<Servico> servicos = new ArrayList<>();
+    private ArrayList<Servico> servicos = new ArrayList<>();
 
-    public CriarServico(){
+    public void criarServico(){
         Servico servico = new Servico();
         servico.setNome(JOptionPane.showInputDialog(null, "Digite o nome: ",
                 "Nome",3));
@@ -14,6 +14,7 @@ public class CriarServico {
         servico.setValor(Float.parseFloat(JOptionPane.showInputDialog(null,
                 "Digite o valor do serviço: ","Valor",3)));
         servicos.add(servico);
+        Entrar.preencherServico(servico);
     }
 
 }

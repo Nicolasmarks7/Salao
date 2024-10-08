@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CriarConta {
 
     private ArrayList<Conta> contas = new ArrayList<>();
+
     public void criarContas(){
         Conta conta = new Conta();
         conta.setNome(JOptionPane.showInputDialog(null, "Digite o nome: ",
@@ -16,7 +16,7 @@ public class CriarConta {
         conta.setEndereco(JOptionPane.showInputDialog(null, "Digite o endereço: ",
                 "Endereço",3));
         contas.add(conta);
-        Entrar.preencher(conta);
+        Entrar.preencherConta(conta);
     }
 
 }

@@ -23,7 +23,8 @@ public class Controle {
                 case 2:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "
                             + opcoes[2]);
-                    new CriarServico();
+                    CriarServico criarservico = new CriarServico();
+                    criarservico.criarServico();
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null,"Você escolheu: "
