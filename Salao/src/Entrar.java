@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Entrar {
@@ -74,21 +75,7 @@ public class Entrar {
     }
 
     public static void agendarConsulta(){
-        //arrumar aqui
-        Object[] lista={};
-        for(Servico servico : s1){
-            try{
-                for(int i=0;i<s1.size();i++){
-                    if(lista[i]==null || lista[i] == ""){
-                        lista[i] = servico.getNome();
-                    }
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-
-            }
-
-        }
-
+        String[] lista = preencherVetor();
         try{
             Object selecao = JOptionPane.showInputDialog(null,"Escolha o serviço:",
                     "Serviços",JOptionPane.QUESTION_MESSAGE,null,lista,lista[0]);
@@ -98,6 +85,27 @@ public class Entrar {
                     "Erro",JOptionPane.ERROR_MESSAGE);
         }
 
+    }
+
+    public static String[] preencherVetor(){
+        int cont=0;
+            for(int i=0;i<s1.size();i++)cont++;
+            String[] lista = new String[cont];
+            for(Servico servico : s1){
+                for(int i=0;i<s1.size();i++){
+                    try{
+                        if(lista[i] == null || lista[i] == ""){
+                            lista[i] = servico.getNome();
+                            break;
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+
+                        System.out.println(Arrays.toString(lista));
+                        System.out.println("erro " + e);
+                    }
+                }
+            }
+        return lista;
     }
 
 }
