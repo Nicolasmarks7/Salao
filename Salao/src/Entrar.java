@@ -7,10 +7,10 @@ public class Entrar {
 
     private static List<Conta> c1 = new ArrayList<>();
     private static List<Servico> s1 = new ArrayList<>();
+    private static List<Agendamento> a1 = new ArrayList<>();
     private String data;
 
     public static void entrar(){
-
         JTextField campo1 = new JTextField();
         JTextField campo2 = new JTextField();
         boolean check = false;
@@ -49,7 +49,9 @@ public class Entrar {
                     case 0:
                         JOptionPane.showMessageDialog(null,"Você escolheu: "
                                 + opcoes[0]);
-                        agendarConsulta();
+                        //continuar daqui
+                        Agendamento agendamento = new Agendamento();
+                        agendamento.setNomeServico(agendarConsulta());
                         break;
                     case 1:
                         JOptionPane.showMessageDialog(null,"Você escolheu: "
@@ -74,17 +76,18 @@ public class Entrar {
         s1.add(servico);
     }
 
-    public static void agendarConsulta(){
+    public static String agendarConsulta() {
         String[] lista = preencherVetor();
-        try{
-            Object selecao = JOptionPane.showInputDialog(null,"Escolha o serviço:",
-                    "Serviços",JOptionPane.QUESTION_MESSAGE,null,lista,lista[0]);
+        Object selecao = null;
+        try {
+            selecao = JOptionPane.showInputDialog(null, "Escolha o serviço:",
+                    "Serviços", JOptionPane.QUESTION_MESSAGE, null, lista, lista[0]);
             System.out.println(selecao);
-        }catch(ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "Sem serviços cadastrados.",
-                    "Erro",JOptionPane.ERROR_MESSAGE);
+                    "Erro", JOptionPane.ERROR_MESSAGE);
         }
-
+        return (String) selecao;
     }
 
     public static String[] preencherVetor(){
@@ -107,5 +110,4 @@ public class Entrar {
             }
         return lista;
     }
-
 }
