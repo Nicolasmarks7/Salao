@@ -15,7 +15,7 @@ public class Entrar {
         JTextField campo2 = new JTextField();
         boolean check = false;
         int opcao;
-        String[] opcoes = {"Agendar Consulta", "Sair"};
+        String[] opcoes = {"Agendar Consulta", "Listar Agendamentos", "Sair"};
 
         Object [] entrada = {
                 "Nome", campo1,
@@ -52,16 +52,32 @@ public class Entrar {
                         //continuar daqui
                         Agendamento agendamento = new Agendamento();
                         agendamento.setNomeServico(agendarConsulta());
+                        agendamento.setNomeUsuario(nome);
+                        a1.add(agendamento);
+                        //System.out.println(agendamento.getNomeServico() + " " + agendamento.getNomeUsuario());
                         break;
                     case 1:
                         JOptionPane.showMessageDialog(null,"Você escolheu: "
                                 + opcoes[1]);
+                        try{
+                            if(a1.get(0) !=null);
+                            for(Agendamento agendamentos: a1){
+                                JOptionPane.showMessageDialog(null,"Agendamento de " +
+                                        agendamentos.getNomeUsuario() + ": " + agendamentos.getNomeServico());
+                            }
+                        }catch(IndexOutOfBoundsException e){
+                            JOptionPane.showMessageDialog(null,"Sem agendamentos cadastrados");
+                        }
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null,"Você escolheu: "
+                                + opcoes[2]);
                         break;
                     default:
 
                         break;
                 }
-            }while(opcao!=1);
+            }while(opcao!=2);
         }else{
             JOptionPane.showMessageDialog(null,"Conta não encontrada",
                     "Erro",JOptionPane.ERROR_MESSAGE);
@@ -82,7 +98,6 @@ public class Entrar {
         try {
             selecao = JOptionPane.showInputDialog(null, "Escolha o serviço:",
                     "Serviços", JOptionPane.QUESTION_MESSAGE, null, lista, lista[0]);
-            System.out.println(selecao);
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "Sem serviços cadastrados.",
                     "Erro", JOptionPane.ERROR_MESSAGE);
