@@ -56,15 +56,44 @@ public class CriarServico {
                 }
             }
         }
-        float valor = Float.parseFloat(JOptionPane.showInputDialog(null,
-                "Digite o valor do serviço: ","Valor",3))
-        boolean valorEmpty =
-        servico.setValor();
+        boolean check = true;
+        try{
+            float valor = Float.parseFloat(JOptionPane.showInputDialog(null,
+                    "Digite o valor do serviço: ","Valor",3));
+            boolean valorZero = servico.verificaValorZero(valor);
+
+            if(!valorZero) servico.setValor(valor);
+
+            while(valorZero){
+                if(!valorZero){
+                    servico.setValor(valor);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(null,"Valor não pode ser 0.0",
+                            "Erro",JOptionPane.ERROR_MESSAGE);
+                    valor = Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o valor: ",
+                            "Descrição",3));
+                    valorZero = servico.verificaValorZero(valor);
+                }
+            }
+
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Valor não pode ser " +
+                            "nulo",
+                    "Erro",JOptionPane.ERROR_MESSAGE);
+            check = false;
+        }
 
 
 
-        servicos.add(servico);
-        Entrar.preencherServico(servico);
+        if(check){
+            servicos.add(servico);
+            Entrar.preencherServico(servico);
+            JOptionPane.showMessageDialog(null,"Serviço adicionado com sucesso.");
+        }else{
+            JOptionPane.showMessageDialog(null,"Serviço não adicionado.",
+                    "Erro",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }

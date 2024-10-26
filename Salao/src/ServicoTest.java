@@ -22,7 +22,7 @@ public class ServicoTest {
     @Test
     public void valorTest(){
         float valor = 1;
-        assertTrue(servico.verificaValor(valor));
+        assertTrue(servico.verificaValorZero(valor));
 
     }
 

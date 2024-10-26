@@ -28,8 +28,8 @@ public class Servico {
         return descricao.length() >= 30;
     }
 
-    public boolean verificaValor(Float valor){
-        return valor > 0;
+    public boolean verificaValorZero(float valor){
+        return valor == 0.0f;
     }
 
     private String nome;
