@@ -49,12 +49,10 @@ public class Entrar {
                     case 0:
                         JOptionPane.showMessageDialog(null,"Você escolheu: "
                                 + opcoes[0]);
-                        //continuar daqui
                         Agendamento agendamento = new Agendamento();
                         agendamento.setNomeServico(agendarConsulta());
                         agendamento.setNomeUsuario(nome);
                         a1.add(agendamento);
-                        //System.out.println(agendamento.getNomeServico() + " " + agendamento.getNomeUsuario());
                         break;
                     case 1:
                         JOptionPane.showMessageDialog(null,"Você escolheu: "

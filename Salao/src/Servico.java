@@ -24,6 +24,14 @@ public class Servico {
         this.valor = valor;
     }
 
+    public boolean verificaDescricao(String descricao){
+        return descricao.length() >= 30;
+    }
+
+    public boolean verificaValor(Float valor){
+        return valor > 0;
+    }
+
     private String nome;
     private String descricao;
     private float valor;
